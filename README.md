@@ -2,6 +2,14 @@
 
 Algorithm &amp; data structure study / Preparation for coding competitions
 
+# 진행 방법
+
+매주 공부할 내용 + 문제 풀어오기
+
+공부한 내용 발표, 자신의 문제 풀이 설명
+
+https://docs.google.com/spreadsheets/d/1iprvcjlFGJaDucVXL9FW0butqceKBi952wqf9k74PTA/edit?usp=sharing
+
 # rule
 
 구현한 자료구조의 코드는 다음의 위치에 저장한다.  
