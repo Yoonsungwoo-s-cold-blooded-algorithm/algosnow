@@ -5,6 +5,8 @@
 // 3. 크기의 조정과 값의 변경이 자료구조의 중간에서 발생
 // 따라서 vector를 사용
 
+// 기본 초기화와 값 초기화
+
 size_t get_first_false(std::vector<bool>& vec);
 void delete_multiple_of_P(std::vector<bool>& vec, size_t P, int& delete_count, int K);
 
