@@ -21,6 +21,7 @@ int main()
         while (table[i])
             i++;
         next_P = i;
+
         table[i] = true;
         if (--K == 0)
         {

@@ -1,16 +1,20 @@
 #include <iostream>
-
 using namespace std;
 
 int main()
 {
-    ios::sync_with_stdio(false);
+    ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
-    bool table[500100] = {false};
-    for (long long int i = 2; i <= 500000;)
+
+    int primes[500000] = {0};
+    int primes_size = 0;
+    bool table[1000010] = {false};
+
+    for (long long int i = 2; i <= 1000000;)
     { // i: current prime
-        for (long long int j = i * i; j <= 500000; j += i)
+        primes[primes_size++] = i;
+        for (long long int j = i * i; j <= 1000000; j += i)
             table[j] = true;
         while (table[++i])
             ;
@@ -22,5 +26,18 @@ int main()
         cin >> n;
         if (!n)
             break;
+        int i = 0;
+        while (i < primes_size)
+        {
+            int prime = primes[i++];
+            if (!table[n - prime])
+            {
+                cout << n << " = " << prime << " + " << n - prime << '\n';
+                break;
+            }
+        }
+        if (i == primes_size)
+            cout << "Goldbach's conjecture is wrong." << '\n';
     }
+    return 0;
 }
