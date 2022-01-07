@@ -7,6 +7,7 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
+
     bool table[250000] = {false};
     for (long long int i = 2; i <= 246912;)
     { // i: current prime
