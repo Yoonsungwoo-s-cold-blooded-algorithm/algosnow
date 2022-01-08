@@ -12,6 +12,7 @@
 // 4. 해당 인덱스에 접근하여, 작은값을 반환한다.
 // 5. 최종 결과에 작은 값 * 인덱스를 곱한다.
 // 6. 만약 최종 결과가 9자리 보다 큰 경우에는 10번째 자리가 1이고 나머지 9자리를 유지하는 수로 만든다.
+
 #define SIZE_OF_FACTOR 32000
 
 int factorization(int number, std::vector<int>& storage);
@@ -42,7 +43,7 @@ int main(){
     for(int n : vector_of_n){
         while(true){
             int flag = factorization(n, factor_of_n);
-            if(flag == 1)
+            if(flag == 1 || flag == 0)
                 break;
             if(flag == -1){
                 huge_prime_of_n.push_back(n);
@@ -55,7 +56,7 @@ int main(){
     for(int m : vector_of_m){
         while(true){
             int flag = factorization(m, factor_of_m);
-            if(flag == 1)
+            if(flag == 1 || flag == 0)
                 break;
             if(flag == -1){
                 huge_prime_of_m.push_back(m);
@@ -84,9 +85,9 @@ int main(){
             }
         }
     }
-    
+
     unsigned int ten_digit = 1000000000;
-    if(final_result > ten_digit){
+    if(final_result >= ten_digit){
         int final_result_with_0 = final_result - ten_digit;
         printf("%09d",final_result_with_0);
     }
@@ -97,25 +98,25 @@ int main(){
 
 // 매우 큰 소수이면 -1, 1이면 1을 반환.  그렇지 않다면 나머지 반환
 int factorization(int number, std::vector<int>& storage){
-    for(int i = 2; i*i <= number; ++i){
-        if(number % i == 0){
+    for(int i = 2; i*i <= number; ++i){ 
+        if(number % i == 0){ 
             while(number % i == 0){ 
                 number /= i;
-                ++(storage.at(i));
+                ++(storage.at(i)); 
             }
             return number;
         }
     }
     // 소수 또는 1인 경우
-
     
 
     if(number > SIZE_OF_FACTOR)
         return -1;
-    else
+    else if(number == 1)
+        return 1;
+    else 
         ++(storage.at(number));
-        
-    return 1;
+    return 0;
 }
 
 int give_smaller(int i, int j){

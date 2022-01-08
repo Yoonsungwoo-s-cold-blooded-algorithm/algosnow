@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+
 // 1. 랜덤 엑세스가 필요함
 // 2. 컨테이너의 크기를 조정 or 컨테이너 원소의 값을 변경 
 // 3. 크기의 조정과 값의 변경이 자료구조의 중간에서 발생
@@ -14,9 +15,10 @@ int main(){
     std::vector<bool> is_deleted;
     int N, K, delete_count = 0;
     std::cin >> N >> K;
-
+    
     for(int i = 0; i != N + 1; ++i) // idx : 0 ~ N
         is_deleted.push_back(false);
+    
     is_deleted.at(0) = true;
     is_deleted.at(1) = true;
     

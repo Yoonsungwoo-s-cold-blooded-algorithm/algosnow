@@ -19,6 +19,7 @@ int main(){
         else
             vector_of_n.push_back(user_input);
     }
+    
     int a = 3, b;
     for(int n : vector_of_n){
         int a = 3, b;
