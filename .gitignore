@@ -1,2 +1,3 @@
+Joonsuk/problems/*.exe
 habin/problems/*
 !habin/problems/*.cpp
