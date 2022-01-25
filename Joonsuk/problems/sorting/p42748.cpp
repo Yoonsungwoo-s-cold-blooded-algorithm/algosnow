@@ -1,5 +1,5 @@
-#include "../../data_structure/sorting/shell_sort.h"
+#include "../../data_structure/sorting/merge_sort.h"
 
 int main() {
-    show_shell_sort();
+    show_merge_sort();
 }
