@@ -32,6 +32,10 @@ void shell_sort(std::vector<int>::iterator begin, std::vector<int>::iterator end
 
                 key = old_state_key;
 
+                // ((마지막 요소 + 1) - 현재 처리한 요소)가 gap보다 작거나 같으면 break;
+                // why? 현재 처리한 요소가 마지막인 경우 gap보다 작다.
+                // 0,1,2    3,4,5   6 인 경우 gap = 3
+                // size() - 6 <= 3
                 if(end - key <= gap)
                     break;
             }
