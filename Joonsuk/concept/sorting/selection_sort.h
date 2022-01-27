@@ -26,7 +26,7 @@ void selection_sort(std::vector<int>::iterator begin, std::vector<int>::iterator
         begin = old_status_begin;
         swap(*begin, *smallest);
     }
-
+    // 1. 이름의 길이   2. 이름의 앞글자
     // 시간 복잡도 : n + n-1 + n-2 + ... + 1 = O(n^2)
     // 버블 정렬과 마찬가지로 항상 n^2의 시간 복잡도를 가진다. -> 최소한 삽입 정렬을 구현하자...
     // 선택 정렬은 불안정 정렬인데, 이는 다시 말해 동일한 값을 갖는 경우에, 동일한 값 간의 상대적인 위치가 변경될 수 있다는 말이다.

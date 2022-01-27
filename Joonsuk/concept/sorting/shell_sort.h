@@ -29,7 +29,7 @@ void shell_sort(std::vector<int>::iterator begin, std::vector<int>::iterator end
                     else
                         break;
                 }
-
+                
                 key = old_state_key;
 
                 // ((마지막 요소 + 1) - 현재 처리한 요소)가 gap보다 작거나 같으면 break;
