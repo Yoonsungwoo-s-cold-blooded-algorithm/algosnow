@@ -1,1 +1,3 @@
-habin/*
+habin/problems/*
+!habin/problems/*.cpp
+!habin/problems/sort/*.cpp
