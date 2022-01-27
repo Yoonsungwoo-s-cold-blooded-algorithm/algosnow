@@ -18,7 +18,7 @@ int main() {
 
     int start_N = N;
     pos_y = N-1;
-    
+
     int k = 0;
     N /= 3;
     while((N/2) != 0){

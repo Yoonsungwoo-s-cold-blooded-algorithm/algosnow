@@ -65,7 +65,7 @@ int pole_number(vector<int>& pole){
         return 3;
 }
 
-// trailing return type과 참조 타입 반환의 유의점
+// trailing return type과 참조 타입 반환의 유의점 int (*) (int, int)
 auto find_empty_pos(vector<int>& my_pole, vector<int>& dest_pole) -> vector<int>& {
     if(my_pole == pole_1){
         if(dest_pole == pole_2)

@@ -1,10 +1,12 @@
 #include <iostream>
 #include <string>
 
-// 1. 원하는 수가 어떤 S(n)에 들어 있는지 구한다.
-// 2. 해당 원하는 수가 k+2 내부에 있는 수인지 구한다. 
-    // 3. 그렇다면 출력
-    // 4. 그렇지 않다면 S(n-1)의 길이 + k+3 만큼을 N에서 빼고, 
+// 핵심 아이디어: 
+// 1. n번째 moo 수열에서 k번째 칸에 목표 단어가 있다고 하자.
+// 2. moo 수열에서 비 대칭인 부분(중간 부분)에 목표 단어가 있다면 바로 구할 수 있다.
+// 3. 그렇지 않다면 n-1번째 moo 수열에서 목표 단어를 구할 수 있다는 뜻이다.
+    // 3-1. n-1번째 moo 수열의 길이보다 k가 크지 않다면 1번을 n-1 moo수열에 대해서 수행한다.
+    // 3-2. 그렇지 않다면 k -= (n-1 moo 수열의 길이 + 비대칭 길이)로 조정한뒤, 1번을 n-1 moo 수열에 대해서 수행한다.
 
 using std::string;
 int length_of_Sn(int n);
@@ -14,7 +16,6 @@ char S(int n_th, int pos);
 int main() {
     int N;
     std::cin >> N;
-    string moo = "";
 
     int n_th = 0;
     while(length_of_Sn(n_th) < N)
