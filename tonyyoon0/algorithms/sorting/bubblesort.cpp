@@ -1,7 +1,7 @@
 #include <iostream>
 
 void bubble_sort(int *list, int list_size) {
-    for (int i = list_size; i >= 0; i--) {
+    for (int i = list_size - 1; i > 0; i--) {
         for (int j = 0; j < i; j++) {
             if (list[j] > list[j + 1]) {
                 int temp = list[j];
