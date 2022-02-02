@@ -1,6 +1,5 @@
 #include <iostream>
 #include <cmath>
-
 using namespace std;
 void Hole(char **arr, int size, int level)
 {
