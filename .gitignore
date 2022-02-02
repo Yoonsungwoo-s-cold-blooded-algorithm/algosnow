@@ -1,3 +1,4 @@
 habin/problems/*
 !habin/problems/*.cpp
-!habin/problems/sort/*.cpp
+habin/sort/*
+!habin/sort/*.cpp
