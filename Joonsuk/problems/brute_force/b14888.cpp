@@ -27,9 +27,9 @@
 // 제일 많을 걸 깐다.
 // 나머지로 순열을 만든다.
 
+#include <deque>
 #include <iostream>
 #include <vector>
-#include <deque>
 
 // 제일 많은 순서대로 1 1 1 2 2 3 4 로 queue가 존재한다고 하자.
 // 맨 앞의 숫자가 insert할 숫자가 된다.
@@ -52,26 +52,22 @@ int arithmetic(int a, int b, int operator_number);
 int find_biggest();
 void init_operator_left(int idx);
 
-int main()
-{
+int main() {
     int N, A, count;
     std::cin >> N;
 
-    for (int i = 0; i != N; ++i)
-    {
+    for (int i = 0; i != N; ++i) {
         std::cin >> A;
         numbers_original.push_back(A);
     }
 
-    for (int i = 0; i != 4; ++i)
-    {
+    for (int i = 0; i != 4; ++i) {
         std::cin >> count;
         operator_count[i] = count;
     }
 
     int biggest_idx = find_biggest(); // 제일 많은 연산자의 idx
-    for (int i = 0; i != operator_count[biggest_idx]; ++i)
-    {
+    for (int i = 0; i != operator_count[biggest_idx]; ++i) {
         operators_inserted.push_back(biggest_idx);
         operators_left.push_back(biggest_idx);
     }
@@ -79,68 +75,53 @@ int main()
     init_operator_left(biggest_idx);
     if (operators_left.size() != operator_count[biggest_idx])
         insertion(operator_count[biggest_idx]); // 6개면, 6부터 시작
-    else
-    {
+    else {
         int calculation_result = calculate(operator_count[biggest_idx] - 1);
         total_max = calculation_result;
         total_min = calculation_result;
     }
 
-    std::cout << total_max << "\n"
-              << total_min;
+    std::cout << total_max << "\n" << total_min;
 }
 
-int find_biggest()
-{
+int find_biggest() {
     int tmp1 = (operator_count[0] > operator_count[1]) ? 0 : 1;
     int tmp2 = (operator_count[2] > operator_count[3]) ? 2 : 3;
 
     return (operator_count[tmp1] > operator_count[tmp2]) ? tmp1 : tmp2;
 }
 
-void init_operator_left(int idx)
-{
-    for (int i = 0; i != 4; ++i)
-    {
-        if (i != idx)
-        {
-            for (int j = 0; j != operator_count[i]; ++j)
-            {
+void init_operator_left(int idx) {
+    for (int i = 0; i != 4; ++i) {
+        if (i != idx) {
+            for (int j = 0; j != operator_count[i]; ++j) {
                 operators_left.push_back(i);
             }
         }
     }
 }
 
-void insertion(int n)
-{ // index가 n인 요소의 insertion
+void insertion(int n) { // index가 n인 요소의 insertion
     int target = operators_left[n];
 
     auto old_state = operators_inserted;
-    for (int i = 0; i != operators_inserted.size() + 1; ++i)
-    {
+    for (int i = 0; i != operators_inserted.size() + 1; ++i) {
         operators_inserted.insert(operators_inserted.begin() + i, target);
 
-        if (n == operators_left.size() - 1)
-        {
+        if (n == operators_left.size() - 1) {
             int calculation_result = calculate(n);
 
-            if (first_calculation)
-            {
+            if (first_calculation) {
                 total_max = calculation_result;
                 total_min = calculation_result;
                 first_calculation = false;
-            }
-            else
-            {
+            } else {
                 if (calculation_result > total_max)
                     total_max = calculation_result;
                 if (calculation_result < total_min)
                     total_min = calculation_result;
             }
-        }
-        else
-        {
+        } else {
             insertion(n + 1);
         }
 
@@ -151,8 +132,7 @@ void insertion(int n)
 int calculate(int n) // 마지막 요소의 인덱스
 {
     std::deque<int> numbers = numbers_original;
-    for (int i = 0; i != n + 1; ++i)
-    { // n+1번 수행 (n == 연산자 개수-1)
+    for (int i = 0; i != n + 1; ++i) { // n+1번 수행 (n == 연산자 개수-1)
         int first = numbers.front();
         numbers.pop_front();
 
@@ -166,10 +146,8 @@ int calculate(int n) // 마지막 요소의 인덱스
     return numbers.front();
 }
 
-int arithmetic(int a, int b, int operator_number)
-{
-    switch (operator_number)
-    {
+int arithmetic(int a, int b, int operator_number) {
+    switch (operator_number) {
     case 0:
         return a + b;
     case 1:
