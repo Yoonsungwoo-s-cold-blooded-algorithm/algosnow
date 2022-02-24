@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-int get_upper_bound(int beg, int end, int max_budget);
+int get_lower_bound(int beg, int end, int max_budget);
 void merge_sort(std::vector<int>::iterator begin, std::vector<int>::iterator end);
 int calculate_budget(int upper_budget);
 
@@ -22,12 +22,12 @@ int main() {
     if (average_budget > budgets.back()) {
         std::cout << budgets.back();
     } else {
-        int answer = get_upper_bound(average_budget, budgets.back() + 1, M);
+        int answer = get_lower_bound(average_budget, budgets.back() + 1, M);
         std::cout << answer;
     }
 }
 
-int get_upper_bound(int beg, int end, int max_budget) {
+int get_lower_bound(int beg, int end, int max_budget) {
     while (beg != end) {
         int center = beg + (end - beg) / 2; // 현재 상한가격
 
